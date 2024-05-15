@@ -1,0 +1,17 @@
+/* ----------------------------------------------------------------------------------------------------- */
+/*  @ Main Tailwind file for injecting utilities.
+/* ----------------------------------------------------------------------------------------------------- */
+/* Import Tailwind CSS */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+// @import 'tailwindcss/utilities';
+
+.navi-link:hover img {
+    filter: brightness(0) invert(-1) hue-rotate(90deg); /* Turn the image pure white and apply 180 degrees hue rotation on hover */
+}
+
+
+.navi-link:hover p {
+    color: white;
+    /* Change the text color to white on hover */
+}
