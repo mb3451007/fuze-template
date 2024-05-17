@@ -5461,7 +5461,8 @@ body {
   }
 
   .xl\:max-w-\[200px\] {
-    max-width: 200px;
+    max-width: 205px;
+    height: 325px;
   }
 
   .xl\:flex-row {

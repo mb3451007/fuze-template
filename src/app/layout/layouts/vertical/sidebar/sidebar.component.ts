@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-sidebar',
     standalone: true,
-    imports: [],
     templateUrl: './sidebar.component.html',
     styleUrl: './sidebar.component.scss',
+    imports    : [RouterOutlet],
 })
 export class SidebarComponent {
+  isSidebarClose:boolean = false;
   isHomeVisible: boolean = true;
 
     toggleSidebar() {
@@ -22,6 +24,7 @@ export class SidebarComponent {
                 sidebars.forEach(function (sidebar) {
                     sidebar.classList.toggle('active');
                 });
+                this.isSidebarClose =! this.isSidebarClose;
             });
         });
     }
