@@ -1,8 +1,6 @@
 import { Component, ViewChild , AfterViewInit, HostListener, ElementRef, Renderer2 } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { SpreadsheetAllModule, SpreadsheetComponent } from '@syncfusion/ej2-angular-spreadsheet';
-import { ClickEventArgs } from '@syncfusion/ej2-navigations';
-import { CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedService } from 'app/services/shared.service';
 
 @Component({
@@ -38,36 +36,9 @@ export class FoglioComponent implements AfterViewInit{
     console.log('view has been initialize')
   }
 
-  onToolbarClick(args: ClickEventArgs): void {
-    console.log ('hereeeee')
-    switch (args.item.text) {
-      case 'Save':
-        this.saveSheet();
-        break;
-      case 'FullScreen':
-        this.toggleFullScreen();
-        break;
-      case 'NewSheet':
-        this.addSheet();
-        break;
-      case 'Custom':
-        this.customButtonAction();
-        break;
-      case 'New Item':
-        this.newItemAction();
-        break;
-      default:
-        break;
-    }
-  }
   addSheet(): void {
     this.spreadsheet.insertSheet([{}]);
     this.spreadsheet.goTo(`${this.spreadsheet.sheets.length - 1}A1`); 
-  }
-
-  saveSheet(): void {
-    // Implement save logic here
-    console.log('Save logic goes here.');
   }
 
   toggleFullScreen(): void {
@@ -82,34 +53,20 @@ export class FoglioComponent implements AfterViewInit{
       }
     }
   }
-customButtonAction(): void {
-    // Implement custom button logic here
-    alert('Custom button clicked');
-  }
-  newItemAction(): void {
-    // Implement new item logic here
-    alert('New item clicked');
-  }
+
   onCreated(): void {
     this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="add-new-btn" class="new-add-button"><img src="assets/images/plusicon.png"></button>'}], 0);
     this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="save-without-icon" class="new-save-button" (click)="saveSheetsWithOutIcon()"><img src="assets/images/saveicon2.svg"></button>'}], 4);
     this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="full-screen" class="full-screen-button" (click)="fullScreen()"><img src="assets/images/full-screen.svg"></button>'}], 8);
     document.getElementById('add-new-btn')?.addEventListener('click', this.addNewSheet.bind(this));
     document.getElementById('save-without-icon')?.addEventListener('click', this.onsave.bind(this));
-    document.getElementById('save-btn')?.addEventListener('click',this.saveSheetsWithOutIcon.bind(this))
     document.getElementById('full-screen')?.addEventListener('click',this.fullScreen.bind(this))
-}
-
-  onSaveWithoutIcon(): void {
-   
-    
-}
+  }
   onsave(): void {
-  // this.spreadsheet.save() 
-  this.spreadsheet.save({
-    fileName: 'SpreadsheetData.xlsx'
-  });   
-}
+    this.spreadsheet.save({
+      fileName: 'SpreadsheetData.xlsx'
+    });   
+  }
   fullScreen(): void {
     const elem = document.documentElement;
     if (!document.fullscreenElement) {
@@ -123,48 +80,42 @@ customButtonAction(): void {
     }
   }
     
-
-saveSheetsWithOutIcon(){
-this.spreadsheet
-}
-
-addNewSheet(): void {
-  this.spreadsheet.insertSheet(this.spreadsheet.sheets.length);
-}
-
-
-fullscreenChangeHandler() { 
-  if (document.fullscreenElement) {
-   this.sharedService.Fullscreen(true);
-  } else {
-    this.sharedService.Fullscreen(false);
+  addNewSheet(): void {
+    this.spreadsheet.insertSheet(this.spreadsheet.sheets.length);
   }
-}
 
-// Method to request fullscreen
-requestFullscreen() {
-  let element = this.elementRef.nativeElement;
-  if (element.requestFullscreen) {
-    element.requestFullscreen();
-  } else if (element.mozRequestFullScreen) {
-    element.mozRequestFullScreen();
-  } else if (element.webkitRequestFullscreen) {
-    element.webkitRequestFullscreen();
-  } else if (element.msRequestFullscreen) {
-    element.msRequestFullscreen();
+  fullscreenChangeHandler() { 
+    if (document.fullscreenElement) {
+    this.sharedService.Fullscreen(true);
+    } else {
+      this.sharedService.Fullscreen(false);
+    }
   }
-}
 
-// Method to exit fullscreen
-exitFullscreen() {
-  if (document.exitFullscreen) {
-    document.exitFullscreen();
-  } else if ((document as any).mozCancelFullScreen) {
-    (document as any).mozCancelFullScreen();
-  } else if ((document as any).webkitExitFullscreen) {
-    (document as any).webkitExitFullscreen();
-  } else if ((document as any).msExitFullscreen) {
-    (document as any).msExitFullscreen();
+  // Method to request fullscreen
+  requestFullscreen() {
+    let element = this.elementRef.nativeElement;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
   }
-}
+
+  // Method to exit fullscreen
+  exitFullscreen() {
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if ((document as any).mozCancelFullScreen) {
+      (document as any).mozCancelFullScreen();
+    } else if ((document as any).webkitExitFullscreen) {
+      (document as any).webkitExitFullscreen();
+    } else if ((document as any).msExitFullscreen) {
+      (document as any).msExitFullscreen();
+    }
+  }
 }                                                                                                                                          
