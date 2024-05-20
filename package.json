@@ -25,6 +25,7 @@
         "@angular/platform-browser-dynamic": "17.2.4",
         "@angular/router": "17.2.4",
         "@ngneat/transloco": "6.0.4",
+        "@syncfusion/ej2-angular-spreadsheet": "^25.2.4",
         "apexcharts": "3.47.0",
         "crypto-js": "4.2.0",
         "highlight.js": "11.9.0",
@@ -33,6 +34,7 @@
         "ng-apexcharts": "1.9.0",
         "ngx-quill": "25.1.1",
         "perfect-scrollbar": "1.5.5",
+        "quill": "^2.0.2",
         "rxjs": "7.8.1",
         "tslib": "2.6.2",
         "zone.js": "0.14.4"

@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 @Component({
     selector: 'app-sidebar',
     standalone: true,
-    imports: [],
     templateUrl: './sidebar.component.html',
     styleUrl: './sidebar.component.scss',
+    imports    : [RouterOutlet],
 })
 export class SidebarComponent {
     isHomeVisible: boolean = false;
-    isArchivioVisible: boolean = true;
+    isArchivioVisible: boolean = true; 
     isWorkspaceVisible: boolean = true;
     isReportVisible: boolean = true;
     isSupportoVisible: boolean = true;
@@ -26,6 +27,7 @@ export class SidebarComponent {
                 sidebars.forEach(function (sidebar) {
                     sidebar.classList.toggle('active');
                 });
+                this.isSidebarClose =! this.isSidebarClose;
             });
         });
     }
