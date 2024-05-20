@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-sidebar',
@@ -13,7 +14,7 @@ export class SidebarComponent {
     isWorkspaceVisible: boolean = true;
     isReportVisible: boolean = true;
     isSupportoVisible: boolean = true;
-
+    constructor(private router: Router) { }
     toggleSidebar() {
         var headArrows = document.querySelectorAll('.head-arrow');
         // Loop through each element with the class .head-arrow and attach the click event listener
@@ -59,6 +60,7 @@ export class SidebarComponent {
             this.isWorkspaceVisible = true;
             this.isReportVisible = true;
             this.isSupportoVisible = true;
+            this.router.navigate(['/home']); 
         }
 
         if (navlink === 'archvio') {
@@ -67,6 +69,7 @@ export class SidebarComponent {
             this.isWorkspaceVisible = true;
             this.isReportVisible = true;
             this.isSupportoVisible = true;
+            this.router.navigate(['/archivio']); 
         }
 
         if (navlink === 'Workspace') {
