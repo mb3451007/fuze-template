@@ -25,7 +25,7 @@ export class FoglioComponent implements AfterViewInit{
   ];
 
   public sheets = [{
-    rangeSettings: [{ dataSource: [[1, 2], [3, 4]] }]
+    rangeSettings: [{ dataSource: [[1, 2], [3, 4]] }] 
   }];
 
   ngOnInit() {
@@ -34,9 +34,9 @@ export class FoglioComponent implements AfterViewInit{
       this.fullscreenChangeHandler();
     });
   }
-ngAfterViewInit(): void {
-  console.log('view has been initialize')
-}
+  ngAfterViewInit(): void {
+    console.log('view has been initialize')
+  }
 
   onToolbarClick(args: ClickEventArgs): void {
     console.log ('hereeeee')
