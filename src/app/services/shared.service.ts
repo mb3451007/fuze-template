@@ -16,5 +16,6 @@ export class SharedService {
         document.exitFullscreen().then(() => this.Fullscreen(false));
     }
 }
+
   constructor() { }
 }
