@@ -43,6 +43,7 @@ export class SidebarComponent {
     }
 
     openModal(navlink: string) {
+        console.log ('asasasasasa', navlink)
         this.isModalVisible = false;
 
         if (navlink === 'home') {
@@ -69,7 +70,7 @@ export class SidebarComponent {
             this.isWorkspaceVisible = false;
             this.isReportVisible = true;
             this.isSupportoVisible = true;
-            // this.router.navigate(['/workspace']);
+            this.router.navigate(['/workspace']);
         }
 
         if (navlink === 'Report') {
@@ -78,7 +79,7 @@ export class SidebarComponent {
             this.isWorkspaceVisible = true;
             this.isReportVisible = false;
             this.isSupportoVisible = true;
-            // this.router.navigate(['/report']);
+            this.router.navigate(['/report']);
         }
 
         if (navlink === 'Supporto') {
@@ -87,7 +88,7 @@ export class SidebarComponent {
             this.isWorkspaceVisible = true;
             this.isReportVisible = true;
             this.isSupportoVisible = false;
-            // this.router.navigate(['/supporto']);
+            this.router.navigate(['/supporto']);
         }
     }
 

@@ -6,25 +6,27 @@ import { ArchivioComponent } from './archivio/archivio.component';
 import { SupportoComponent } from 'app/supporto/supporto.component';
 import { ReportComponent } from 'app/report/report.component';
 import { WorkspaceComponent } from 'app/workspace/workspace.component';
+import { FoglioComponent } from 'app/foglio/foglio/foglio.component';
 
 const routes: Routes = [
 
-  {path:'' , redirectTo:'dashboard', pathMatch:'full'},
-  {path:'dashboard' , component:DashboardComponent,children:[
-    {path:'' , redirectTo:'archivio' , pathMatch:'full'},
-    {path:'home' , component:HomeComponent },
-    {path:'archivio' , component:ArchivioComponent},
-    {path:'workspace' , component:WorkspaceComponent},
-    {path:'report' , component:ReportComponent },
-    {path:'support' , component:SupportoComponent },
+  // {path:'' , redirectTo:'dashboard', pathMatch:'full'},
+  // {path:'dashboard' , component:DashboardComponent,children:[
+  //   {path:'' , redirectTo:'dashboard/archivio' , pathMatch:'full'},
+  //   {path:'home' , component:HomeComponent },
+  //   {path:'archivio' , component:ArchivioComponent},
+  //   {path:'workspace' , component:WorkspaceComponent},
+  //   {path:'report' , component:ReportComponent },
+  //   {path:'support' , component:SupportoComponent },
+  //   { path: 'foglio', component: FoglioComponent },
 
   ]
-}
+// }
 
-];
+// ];
 
 @NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  // imports: [RouterModule.forChild(routes)],
+  // exports: [RouterModule]
 })
 export class DashRoutingModule { }

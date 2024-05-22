@@ -17,10 +17,10 @@ import { ArchivioComponent } from './archivio/archivio.component';
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
 
-    {
-        path: '',
-        component: AppComponent,
-        children: [
+    // {
+        // path: '',
+        // component: AppComponent,
+        // children: [
             { path: '', component: HomeComponent },
             { path: 'home', component: HomeComponent },
             { path: 'archivio', component: ArchivioComponent },
@@ -28,8 +28,8 @@ export const appRoutes: Route[] = [
             { path: 'report', component: ReportComponent },
             { path: 'supporto', component: SupportoComponent },
             { path: 'foglio', component: FoglioComponent },
-        ],
-    },
+        // ],
+    // },
 
     // Redirect empty path to '/example'
     // { path: '', pathMatch: 'full', redirectTo: 'dashbaord' },
@@ -43,7 +43,7 @@ export const appRoutes: Route[] = [
 
     // Auth routes for guests
     {
-        path: '',
+        path: 'auth',
         // canActivate: [NoAuthGuard],
         // canActivateChild: [NoAuthGuard],
         component: LayoutComponent,
@@ -144,9 +144,9 @@ export const appRoutes: Route[] = [
     //     ],
     // },
 
-    {
-        path: 'dashbaord',
-        loadChildren: () =>
-            import('./modules/dashboard/dash.module').then((m) => m.DashModule),
-    },
+    // {
+    //     path: 'dashbaord',
+    //     loadChildren: () =>
+    //         import('./modules/dashboard/dash.module').then((m) => m.DashModule),
+    // },
 ];
