@@ -8,14 +8,13 @@
 .container {
     display: flex;
     width: 100%;
-    // height: 90vh; 
 }
 
 .sidebar {
     flex: 0 0 15%; 
     transition: flex-basis 0.3s ease; 
-    
 }
+
 .main-content {
     flex: 1;
     height: 100% !important; 
