@@ -24,7 +24,11 @@ export class AppComponent implements OnInit {
     constructor(private sharedService: SharedService) {}
     isFullscreen = false;
     applicationFullscreen: boolean;
+    showSideBar: boolean = true;
     ngOnInit(): any {
+        if (window.location.pathname.indexOf('auth') >= 0) {
+            this.showSideBar = false;
+        }
         this.sharedService.fullscreenState$.subscribe((isFullscreen) => {
             this.isFullscreen = isFullscreen;
         });

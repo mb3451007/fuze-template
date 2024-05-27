@@ -15,16 +15,6 @@ import { SharedService } from 'app/services/shared.service';
 export class FoglioComponent implements AfterViewInit{
   constructor(private sharedService:SharedService,private elementRef:ElementRef,private renderer:Renderer2){}
   @ViewChild('spreadsheet', { static: false }) spreadsheet: SpreadsheetComponent;
-  public toolbarItems: Object[] = [
-    { text: 'Add', tooltipText: 'Add', prefixIcon: 'e-add', id: 'add' },
-    { text: 'Save', tooltipText: 'Save', prefixIcon: 'e-save', id: 'save' },
-    { type: 'Separator' },
-    'Open', 'Undo', 'Redo'
-  ];
-
-  public sheets = [{
-    rangeSettings: [{ dataSource: [[1, 2], [3, 4]] }] 
-  }];
 
   ngOnInit() {
     // Listen for fullscreen change event
@@ -55,9 +45,9 @@ export class FoglioComponent implements AfterViewInit{
   }
 
   onCreated(): void {
-    this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="add-new-btn" class="new-add-button"><img src="assets/images/plusicon.png"></button>'}], 0);
-    this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="save-without-icon" class="new-save-button" (click)="saveSheetsWithOutIcon()"><img src="assets/images/saveicon2.svg"></button>'}], 4);
-    this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="full-screen" class="full-screen-button" (click)="fullScreen()"><img src="assets/images/full-screen.svg"></button>'}], 8);
+    this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="add-new-btn" class="new-add-button btn-hvr"><img src="assets/images/plusicon.png"></button>'}], 0);
+    this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="save-without-icon" class="new-save-button btn-hvr" (click)="saveSheetsWithOutIcon()"><img src="assets/images/saveicon2.svg"></button>'}], 4);
+    this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="full-screen" class="full-screen-button btn-hvr" (click)="fullScreen()"><img src="assets/images/full-screen.svg"></button>'}], 8);
     document.getElementById('add-new-btn')?.addEventListener('click', this.addNewSheet.bind(this));
     document.getElementById('save-without-icon')?.addEventListener('click', this.onsave.bind(this));
     document.getElementById('full-screen')?.addEventListener('click',this.fullScreen.bind(this))

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,17 +8,51 @@ import { Router } from '@angular/router';
     templateUrl: './sidebar.component.html',
     styleUrl: './sidebar.component.scss',
 })
-export class SidebarComponent {
+export class SidebarComponent implements OnInit{
     isHomeVisible: boolean = false;
     isArchivioVisible: boolean = true;
     isWorkspaceVisible: boolean = true;
     isReportVisible: boolean = true;
     isSupportoVisible: boolean = true;
     isModalVisible = false;
+    clicked: boolean = false;
 
-    constructor(private router: Router) {}
+    constructor(private router: Router, private renderer: Renderer2) {}
+
+    ngOnInit(): void {
+        console.log ('asasasas', window.location.pathname)
+        switch (window.location.pathname) {
+            case '/home':
+            case 'home':
+                this.openModal('home');
+                break;
+            case '/archivio':
+            case 'archivio':
+                this.openModal('archvio');
+                break;
+            case '/workspace':
+            case '/workspace':
+                this.openModal('Workspace');
+                break;
+            case '/report':
+            case 'report':
+                this.openModal('Report');
+                break;
+            case '/supporto':
+            case 'supporto':
+                this.openModal('Supporto');
+                break;
+            case 'foglio':
+            case '/foglio':
+                this.isModalVisible = true;
+                
+        }
+    }
 
     toggleSidebar() {
+        console.log ('inside')
+        this.clicked = !this.clicked;
+        
         var headArrows = document.querySelectorAll('.head-arrow');
         // Loop through each element with the class .head-arrow and attach the click event listener
         headArrows.forEach(function (headArrow) {
@@ -28,16 +62,16 @@ export class SidebarComponent {
                     '.sidebar,.dashboard-right'
                 );
                 sidebars.forEach(function (sidebar) {
+                    console.log ('inside11')
                     sidebar.classList.toggle('active');
                 });
             });
         });
+        if (this.clicked)
+            document.getElementById('toggleBtn').click();
+            // this.renderer.selectRootElement(document.getElementById('toggleBtn')).click();
     }
-
-    OnInit() {
-        this.activeSupporto();
-    }
-
+    
     closeModal(): void {
         this.isModalVisible = true;
     }
@@ -52,7 +86,7 @@ export class SidebarComponent {
             this.isWorkspaceVisible = true;
             this.isReportVisible = true;
             this.isSupportoVisible = true;
-            // this.router.navigate(['/home']);
+            this.router.navigate(['/home']);
         }
 
         if (navlink === 'archvio') {
@@ -61,7 +95,7 @@ export class SidebarComponent {
             this.isWorkspaceVisible = true;
             this.isReportVisible = true;
             this.isSupportoVisible = true;
-            // this.router.navigate(['/archivio']);
+            this.router.navigate(['/archivio']);
         }
 
         if (navlink === 'Workspace') {
@@ -125,11 +159,7 @@ export class SidebarComponent {
     }
 
     supportoVisible() {
-        this.isArchivioVisible = true;
-        this.isWorkspaceVisible = true;
-        this.isReportVisible = true;
-        this.isSupportoVisible = true;
-        this.isHomeVisible = false;
+        this.isModalVisible = true;
     }
 
     activeHome() {

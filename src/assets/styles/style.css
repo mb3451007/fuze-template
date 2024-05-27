@@ -3513,10 +3513,6 @@ input:checked+.slider:before {
   background-color: #8CC540;
 }
 
-.dashboard-right.active {
-  padding-left: 108px;
-}
-
 .colonna-table table {
   /* border-collapse: collapse; */
   width: 100%;
@@ -3784,9 +3780,7 @@ body {
 }
 
 @media screen and (max-width: 575px) {
-  .dashboard-right.active {
-    padding-left: 66px;
-  }
+  
 
   .sidebar.active .sidbar-member h4 {
     font-size: 16px;
@@ -5461,8 +5455,7 @@ body {
   }
 
   .xl\:max-w-\[200px\] {
-    max-width: 205px;
-    height: 325px;
+    max-width: 192px;
   }
 
   .xl\:flex-row {

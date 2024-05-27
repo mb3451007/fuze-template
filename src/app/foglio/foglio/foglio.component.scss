@@ -10,7 +10,7 @@
 
     .e-spreadsheet .e-row-header{
         width: 50px !important;
-        z-index: 1000;
+        z-index: 1;
     }
     .e-table .e-rowhdr-table{
     //    height: 50px !important;
@@ -68,6 +68,10 @@
         height: 27px;
     }
 
+    .btn-hvr:hover {
+        background: rgba(0, 0, 0, 0.12);
+    }
+
    
     // jjjj
     .save-with-icon {
@@ -94,4 +98,3 @@
       
 
 }
-

@@ -8,5 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+  constructor() {
+  }
 
+  getBaseUrl() {
+    return window.location.origin;
+  }
 }
