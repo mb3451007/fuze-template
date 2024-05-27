@@ -1,14 +1,17 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { Router } from '@angular/router';
+import { DarkModeService } from 'app/dark-mode.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-sidebar',
     standalone: true,
-    imports: [],
+    imports: [CommonModule],
     templateUrl: './sidebar.component.html',
     styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent implements OnInit{
+    isDarkMode:boolean=false;
     isHomeVisible: boolean = false;
     isArchivioVisible: boolean = true;
     isWorkspaceVisible: boolean = true;
@@ -17,7 +20,7 @@ export class SidebarComponent implements OnInit{
     isModalVisible = false;
     clicked: boolean = false;
 
-    constructor(private router: Router, private renderer: Renderer2) {}
+    constructor(private router: Router, private renderer: Renderer2,private darkModeService:DarkModeService) {}
 
     ngOnInit(): void {
         console.log ('asasasas', window.location.pathname)
@@ -47,6 +50,9 @@ export class SidebarComponent implements OnInit{
                 this.isModalVisible = true;
                 
         }
+        this.darkModeService.darkMode$.subscribe(response=>{
+            this.isDarkMode=response;            
+        })
     }
 
     toggleSidebar() {

@@ -12,3 +12,28 @@
 @import '../../node_modules/@syncfusion/ej2-dropdowns/styles/material.css';
 @import '../../node_modules/@syncfusion/ej2-spreadsheet/styles/material.css';
 @import '../../node_modules/@syncfusion/ej2-grids/styles/material.css';
+// ::ng-deep{
+// body.dark-mode {
+//     background-color: black;
+//     color: white;
+//   }
+//   body.dark-mode .SidebarComponent{
+//     background-color: black;
+//     color: white;
+//   }
+  
+//   .container.dark-mode .sidebar,
+//   .container.dark-mode .main-content 
+
+//   {
+//     background-color: red;
+//     color: white !important;
+//   }
+// }
+  /* Add any additional dark mode styles needed */
+  .dark-mode{
+    background-color:#222831 !important;
+  }
+  .lightMode{
+    background-color: rgb(232 236 240 / 0.5) !important;
+  }

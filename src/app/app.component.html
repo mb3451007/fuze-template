@@ -1,4 +1,4 @@
-<div class="container" [ngClass]="{'fullscreen': isFullscreen}">
+<div class="container" [ngClass]="{'fullscreen': isFullscreen, 'dark-mode':isDarkMode, 'lightMode':!isDarkMode}">
     <div class="sidebar" *ngIf="showSideBar">
         <app-header></app-header>
         <app-sidebar></app-sidebar>

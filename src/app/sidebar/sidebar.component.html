@@ -1,13 +1,13 @@
 <div
-    class="sidebar z-[40] bg-white border-r border-solid border-gray-1400 fixed left-0 top-0 h-full xl:max-w-[200px] md:max-w-[150px] sm:max-w-[75px] max-w-[55px] w-full flex justify-between flex-col">
+    class="sidebar z-[40] bg-white border-r border-solid border-gray-1400 fixed left-0 top-0 h-full xl:max-w-[200px] md:max-w-[150px] sm:max-w-[75px] max-w-[100px] w-full flex justify-between flex-col" [ngClass]="{'dark-mode': isDarkMode,'lightMode':!isDarkMode}">
     <div class="border-b border-solid border-gray-1400 md:min-h-[100px] min-h-[60px]">
 
-        <a id="toggleBtn" class="cursor-pointer bg-gray-1300 head-arrow rounded-full sm:w-[30px] w-[20px] sm:h-[30px] h-[20px] flex items-center justify-center absolute sm:-right-3.5 -right-2.5 sm:top-4 top-5"
-            (click)="toggleSidebar()"> <img src="assets/images/left-arrow2.svg" alt=""
-                style="height: 15px !important ; width: 15px !important;" />
+        <a id="toggleBtn" class="arrow-icon cursor-pointer bg-gray-1300 head-arrow rounded-full sm:w-[30px] w-[20px] sm:h-[30px] h-[20px] flex items-center justify-center absolute sm:-right-3.5 -right-2.5 sm:top-4 top-5"
+            (click)="toggleSidebar()">
+            <svg class="svg-arrow-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
         </a>
 
-        <a class="flex items-center justify-center md:px-5 px-2.5 md:py-[35px] py-0 h-full">
+        <a class="logo-div flex items-center justify-center md:px-5 px-2.5 md:py-[35px] py-0 h-full">
             <svg class="logo-big md:block hidden" width="120" height="30" viewBox="0 0 120 30" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <path class="logo-path"
@@ -49,7 +49,7 @@
         </a>
     </div>
     <div class="xl:px-5 md:px-2.5 px-1 py-8 h-full navigation">
-        <ul>
+        <ul class="sidebar">
             <li class="mb-2.5 cursor-pointer" (click)="openModal('home') ; navigateTo('home') "><a
                     class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4]
                     font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
@@ -307,7 +307,7 @@
             <img src="assets/images/supporto-arrow.svg" alt=""></span>
 
 
-        <div class="relative bg-white rounded-[20px]">
+        <div class="relative bg-white rounded-[20px] dialog-main-div">
             <div class="px-5 sm:pt-[90px] pt-[60px] pb-[30px] relative">
                 <button type="button" class="flex items-center justify-center sm:w-8 w-6 sm:h-8 h-6 absolute sm:top-[25px] top-4 sm:right-[25px]
                      right-4 close-btn">

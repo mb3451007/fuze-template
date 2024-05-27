@@ -45,7 +45,7 @@
     </fuse-splash-screen> -->
 
     <!-- App root -->
-    <app-root></app-root>
+    <app-root [ngClass]="{'dark-mode':isDarkMode ,'lightMode':!isDarkMode}"></app-root>
     <script src="assets/styles/custom.js"></script>
 </body>
 

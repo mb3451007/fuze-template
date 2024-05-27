@@ -3413,6 +3413,9 @@ input[type="file"] {
 .sidebar.active {
   max-width: 90px;
 }
+.sidebar{
+  max-width: 192px;
+}
 
 .sidebar.active .logo-big {
   display: none;
@@ -3453,7 +3456,7 @@ input[type="file"] {
   padding-right: 3px;
 }
 
-.sidebar.active .head-arrow img {
+.sidebar.active .head-arrow svg {
   rotate: 180deg;
 }
 

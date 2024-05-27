@@ -16,8 +16,11 @@
 }
 
 .main-content {
+    padding-top: 30px;
+    padding-left: 50px;
     flex: 1;
     height: 100% !important; 
+    width: 100% !important; 
     flex-grow: 1;
     margin-top: 5%;
 }
@@ -39,4 +42,128 @@
     .main-content {
       padding-left: 5%;
     }
+
+    .lightMode{
+      background-color: rgb(232 236 240 / 0.5) !important;
+    }
+    .dark-mode {
+      background-color: black;
+      color: white;
+    }
+    .container.sidebar{
+      background-color: black;
+      color: white;
+    }
+    
   }
+
+  ::ng-deep{
+    ejs-spreadsheet {
+      span {
+        color: rgba(0, 0, 0, 0.54) !important;
+      }
+    }
+    .lightMode{
+      background-color: rgb(232 236 240 / 0.5) !important;
+    }
+    
+    .dark-mode{
+        .dialog-main-div {
+          background-color: #31363F !important;
+        }
+        background-color:#222831;
+        .text-gray-1200{
+          background-color:#222831;
+        }
+        .sm\:flex-nowrap{
+          background-color:#222831;
+        }
+        .md\:text-base{
+          border: 1px solid gray;
+        }
+        .md\:p-0{
+          border: 1px solid gray;
+          }
+        .sm\:py-\[29px\]{
+          background-color: #31363F !important;
+          }
+          .fare-con{
+            background-color: #31363F !important;
+          }
+          .novita{
+            background-color: #31363F !important;
+          }
+          .scopi{
+            background-color: #31363F !important;
+          }
+          .scopi:hover{
+            background-color: red !important;
+          }
+          .utenti{
+            background-color: #31363F !important;
+          }
+          .importa{
+            background-color:#222831 !important;
+          }
+          .file{
+            background-color:red !important;
+            color: white !important;
+          }
+          #default-tab [aria-selected="false"] {
+            color: white !important;
+          }
+
+        .sm\:px-5{
+          background-color: #31363F !important;
+          }
+        .switch-mode .checkbox-label{
+          border: 1px solid gray;
+        }
+        .sidebar{
+          background-color: #31363F !important;
+        }
+        .top-bar {
+          background-color: #31363F !important;
+        }
+        .arrow-icon{
+          background-color:#222831 !important;
+        }
+        .arrow-icon svg{
+          path{
+            fill: #fff !important;
+            stroke: #fff !important;
+            stroke-opacity: 1 !important;
+          }
+        }
+        h1, h2, h3, h4, h5, h6, p, td, span, .text-black-1200 {
+            color: #EEEEEE !important;
+        }
+
+        ejs-spreadsheet {
+          span {
+            color: rgba(0, 0, 0, 0.54) !important;
+          }
+          td {
+            color: #424242 !important;
+
+          }
+        }
+        .logo-div {
+            svg {
+                path {
+                    fill: #fff !important;
+                }
+            }
+        }
+        .sidebar {
+          svg {
+            path {
+                stroke: #fff !important;
+                stroke-opacity: 1 !important;
+            }
+            g {
+                opacity: 1 !important;
+            }
+          }
+        }
+    }}
