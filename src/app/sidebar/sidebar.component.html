@@ -93,6 +93,17 @@
                     <p class="md:block hidden"> Workspace </p>
                 </a>
             </li>
+            <li class="mb-2.5 cursor-pointer" (click)="openModal('Foglio');navigateTo('foglio')"><a
+                    class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4] font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
+                        class="w-6 xl:mr-2.5 md:mr-1.5 mr-0">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.5 3.8335H5.5C3.61438 3.8335 2.67157 3.8335 2.08579 4.41928C1.5 5.00507 1.5 5.94788 1.5 7.83349V16.1668C1.5 18.0524 1.5 18.9953 2.08579 19.581C2.67157 20.1668 3.61438 20.1668 5.5 20.1668H18.5C20.3856 20.1668 21.3284 20.1668 21.9142 19.581C22.5 18.9953 22.5 18.0524 22.5 16.1668V7.8335C22.5 5.94788 22.5 5.00507 21.9142 4.41928C21.3284 3.8335 20.3856 3.8335 18.5 3.8335Z" stroke="#A5A5A5" stroke-width="1.5"/>
+                            <path d="M8.71875 3.8335V20.1668M22.5 14.7326H1.5M22.5 9.26889H1.5M15.6683 3.8335V20.1668" stroke="#A5A5A5" stroke-width="1.3" stroke-linecap="round"/>
+                            </svg>
+                            
+                    </span>
+                    <p class="md:block hidden"> Foglio </p>
+                </a></li>
 
             <li class="mb-2.5 cursor-pointer" (click)="openModal('Report'); navigateTo('report')"><a
                     class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4] font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px]   hover:bg-sea-green-1100 hover:text-white"><span
@@ -129,28 +140,6 @@
                         </svg>
                     </span>
                     <p class="md:block hidden"> Supporto</p>
-                </a></li>
-
-            <li class="mb-2.5 cursor-pointer" (click)="navigateToFoglio()"><a
-                    class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4] font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
-                        class="w-6 xl:mr-2.5 md:mr-1.5 mr-0">
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M21 3.56V10.31C21 11.69 19.88 12.81 18.5 12.81H7.43C6.56 12.81 5.74 13.25 5.31 14L1 21V3.5C1 2.12 2.12 1 3.5 1H18.5C19.87 1.06 21 2.12 21 3.56Z"
-                                stroke="#1E1E1E" stroke-opacity="0.4" stroke-width="1.6" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path
-                                d="M7.18994 8.55957C7.8803 8.55957 8.43994 7.99993 8.43994 7.30957C8.43994 6.61921 7.8803 6.05957 7.18994 6.05957C6.49958 6.05957 5.93994 6.61921 5.93994 7.30957C5.93994 7.99993 6.49958 8.55957 7.18994 8.55957Z"
-                                stroke="#1E1E1E" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M11.0601 8.55957C11.7504 8.55957 12.3101 7.99993 12.3101 7.30957C12.3101 6.61921 11.7504 6.05957 11.0601 6.05957C10.3697 6.05957 9.81006 6.61921 9.81006 7.30957C9.81006 7.99993 10.3697 8.55957 11.0601 8.55957Z"
-                                stroke="#1E1E1E" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
-                            <path
-                                d="M14.9399 8.55957C15.6303 8.55957 16.1899 7.99993 16.1899 7.30957C16.1899 6.61921 15.6303 6.05957 14.9399 6.05957C14.2496 6.05957 13.6899 6.61921 13.6899 7.30957C13.6899 7.99993 14.2496 8.55957 14.9399 8.55957Z"
-                                stroke="#1E1E1E" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </span>
-                    <p class="md:block hidden"> Foglio </p>
                 </a></li>
 
         </ul>
@@ -234,6 +223,21 @@
 
     <span
         class="bg-white lg:flex hidden absolute xl:left-3.5 left-1.5 xl:top-[306px] top-[315px] rounded-[20px] xl:p-2.5 p-2 items-center justify-center xl:max-w-[168px] max-w-[136px] w-full xl:h-[69px] h-[58px]"
+        [hidden]="isFoglioVisible">
+        <a
+            class="navi-link active bg-sea-green-1100 flex items-center md:justify-start justify-center text-white font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 h-full w-full rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
+                class="w-6 xl:mr-2.5 md:mr-1.5 mr-0">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M18.5 3.8335H5.5C3.61438 3.8335 2.67157 3.8335 2.08579 4.41928C1.5 5.00507 1.5 5.94788 1.5 7.83349V16.1668C1.5 18.0524 1.5 18.9953 2.08579 19.581C2.67157 20.1668 3.61438 20.1668 5.5 20.1668H18.5C20.3856 20.1668 21.3284 20.1668 21.9142 19.581C22.5 18.9953 22.5 18.0524 22.5 16.1668V7.8335C22.5 5.94788 22.5 5.00507 21.9142 4.41928C21.3284 3.8335 20.3856 3.8335 18.5 3.8335Z" stroke="#A5A5A5" stroke-width="1.5"/>
+                    <path d="M8.71875 3.8335V20.1668M22.5 14.7326H1.5M22.5 9.26889H1.5M15.6683 3.8335V20.1668" stroke="#A5A5A5" stroke-width="1.3" stroke-linecap="round"/>
+                    </svg>
+                    
+            </span>
+            <p class="md:block hidden"> Foglio</p>
+        </a>
+    </span>
+    <span
+        class="bg-white lg:flex hidden absolute xl:left-3.5 left-1.5 xl:top-[364px] top-[315px] rounded-[20px] xl:p-2.5 p-2 items-center justify-center xl:max-w-[168px] max-w-[136px] w-full xl:h-[69px] h-[58px]"
         [hidden]="isReportVisible">
         <a
             class="navi-link active bg-sea-green-1100 flex items-center md:justify-start justify-center text-white font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 h-full w-full rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
@@ -254,7 +258,7 @@
     </span>
 
     <span
-        class="bg-white lg:flex hidden absolute xl:left-3.5 left-1.5 xl:top-[370px] top-[375px] rounded-[20px] xl:p-2.5 p-2 items-center justify-center xl:max-w-[168px] max-w-[136px] w-full xl:h-[69px] h-[58px]"
+        class="bg-white lg:flex hidden absolute xl:left-3.5 left-1.5 xl:top-[425px] top-[375px] rounded-[20px] xl:p-2.5 p-2 items-center justify-center xl:max-w-[168px] max-w-[136px] w-full xl:h-[69px] h-[58px]"
         [hidden]="isSupportoVisible">
         <a
             class="navi-link active bg-sea-green-1100 flex items-center md:justify-start justify-center text-white font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3  h-full w-full rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
@@ -298,11 +302,15 @@
 
         <span
             class="absolute lg:block hidden 2xl:left-[-232px] xl:left-[-125px] left-[-60px] xl:top-[172px] top-[215px] 2xl:w-auto xl:w-[120px] w-[58px]"
-            [hidden]="isReportVisible">
+            [hidden]="isFoglioVisible">
             <img src="assets/images/report-arrow.svg" alt=""></span>
+        <span
+        class="absolute lg:block hidden 2xl:left-[-232px] xl:left-[-125px] left-[-60px] xl:top-[260px] top-[215px] 2xl:w-auto xl:w-[120px] w-[58px]"
+        [hidden]="isReportVisible"> 
+        <img src="assets/images/report-arrow.svg" alt=""></span>
 
         <span
-            class="absolute lg:block hidden 2xl:left-[-200px] xl:left-[-119px] left-[-60px] 2xl:top-[150px] xl:top-[180px] top-[210px] 2xl:w-auto xl:w-[120px] w-[58px]"
+            class="absolute lg:block hidden 2xl:left-[-200px] xl:left-[-119px] left-[-60px] 2xl:top-[255px] xl:top-[295px] top-[210px] 2xl:w-auto xl:w-[120px] w-[58px]"
             [hidden]="isSupportoVisible">
             <img src="assets/images/supporto-arrow.svg" alt=""></span>
 
@@ -380,6 +388,20 @@
                     </p>
 
                 </div>
+                <div [hidden]="isFoglioVisible">
+                    <h4
+                        class="text-black-1200 text-center font-Ubuntu font-medium sm:text-[34px] text-[26px] leading-none">
+                        Genera
+                        risultati!</h4>
+                    <p
+                        class="text-black-1200 mt-6 sm:mb-8 mb-0 text-center font-Ubuntu font-normal sm:text-[22px] text-lg leading-[34px] sm:max-w-[452px] max-w-[332px] w-full mx-auto">
+                        Quando avrai ottenuto risultati soddisfacenti, Xelean ti darà modo di visualizzarli in
+                        <strong>report
+                            multidimensionali. </strong><br>
+                        Ti abbiamo incuriosito? Ci stiamo ancora lavorando, ma presto avremo aggiornamenti!
+                    </p>
+
+                </div>
 
                 <div [hidden]="isSupportoVisible">
 
@@ -404,7 +426,7 @@
                     class="cursor-pointer bg-sea-green-1100 rounded-[10px] h-12 max-w-[127px] w-full flex items-center justify-center text-white font-Ubuntu font-medium text-base mx-auto">Avanti
                     <img src="assets/images/arrow-right.svg" alt="" class="ml-2.5"
                         style="width: 15px !important; height: 15px !important;" /></a>
-                <a [hidden]="isWorkspaceVisible" (click)="workspaceVisible();navigateTo('report')"
+                <a [hidden]="isWorkspaceVisible" (click)="workspaceVisible();navigateTo('foglio')"
                     class="cursor-pointer bg-sea-green-1100 rounded-[10px] h-12 max-w-[127px] w-full flex items-center justify-center text-white font-Ubuntu font-medium text-base mx-auto">Avanti
                     <img src="assets/images/arrow-right.svg" alt="" class="ml-2.5"
                         style="width: 15px !important; height: 15px !important;" /></a>
@@ -412,6 +434,10 @@
                     class="cursor-pointer bg-sea-green-1100 rounded-[10px] h-12 max-w-[127px] w-full flex items-center justify-center text-white font-Ubuntu font-medium text-base mx-auto">Avanti
                     <img src="assets/images/arrow-right.svg" alt="" class="ml-2.5"
                         style="width: 15px !important; height: 15px !important;" /></a>
+                <a [hidden]="isFoglioVisible" (click)="foglioVisible();navigateTo('report')"
+                    class="cursor-pointer bg-sea-green-1100 rounded-[10px] h-12 max-w-[127px] w-full flex items-center justify-center text-white font-Ubuntu font-medium text-base mx-auto">Avanti
+                    <img src="assets/images/arrow-right.svg" alt="" class="ml-2.5"
+                    style="width: 15px !important; height: 15px !important;" /></a>
                 <a [hidden]="isSupportoVisible" (click)="supportoVisible(); "
                     class="cursor-pointer bg-sea-green-1100 rounded-[10px] h-12 max-w-[127px] w-full flex items-center justify-center text-white font-Ubuntu font-medium text-base mx-auto">Avanti
                     <img src="assets/images/arrow-right.svg" alt="" class="ml-2.5"
@@ -432,10 +458,14 @@
                             [class.bg-sea-green-1100]="!isWorkspaceVisible"
                             class="cursor-pointer rounded-full border-2 border-solid border-sea-green-1100 w-4 h-4 flex items-center justify-center"></a>
                     </li>
-                    <li class="px-2"><a (click)="activeReport();navigateTo('report')"
-                            [class.bg-sea-green-1100]="!isReportVisible"
+                    <li class="px-2"><a (click)="activeFoglio();navigateTo('foglio')"
+                            [class.bg-sea-green-1100]="!isFoglioVisible"
                             class="cursor-pointer rounded-full border-2 border-solid border-sea-green-1100 w-4 h-4 flex items-center justify-center"></a>
                     </li>
+                    <li class="px-2"><a (click)="activeReport();navigateTo('report')"
+                        [class.bg-sea-green-1100]="!isReportVisible"
+                        class="cursor-pointer rounded-full border-2 border-solid border-sea-green-1100 w-4 h-4 flex items-center justify-center"></a>
+                </li>
                     <li class="px-2"><a (click)="activeSupporto();navigateTo('supporto')"
                             [class.bg-sea-green-1100]="!isSupportoVisible"
                             class="cursor-pointer rounded-full border-2 border-solid border-sea-green-1100 w-4 h-4 flex items-center justify-center"></a>

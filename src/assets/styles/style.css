@@ -5365,8 +5365,12 @@ body {
     top: 172px;
   }
 
-  .xl\:top-\[180px\] {
-    top: 180px;
+  .xl\:top-\[260px\] {
+    top: 260px;
+  }
+
+  .xl\:top-\[295px\] {
+    top: 295px;
   }
 
   .xl\:top-\[185px\] {
@@ -5381,8 +5385,16 @@ body {
     top: 306px;
   }
 
+  .xl\:top-\[364px\] {
+    top: 364px;
+  }
+
   .xl\:top-\[370px\] {
     top: 370px;
+  }
+
+  .xl\:top-\[425px\] {
+    top: 425px;
   }
 
   .xl\:mb-\[150px\] {
@@ -5537,8 +5549,8 @@ body {
     top: -26px;
   }
 
-  .\32xl\:top-\[150px\] {
-    top: 150px;
+  .\32xl\:top-\[255px\] {
+    top: 255px;
   }
 
   .\32xl\:ml-\[127px\] {

@@ -17,6 +17,7 @@ export class SidebarComponent implements OnInit{
     isWorkspaceVisible: boolean = true;
     isReportVisible: boolean = true;
     isSupportoVisible: boolean = true;
+    isFoglioVisible: boolean = true;
     isModalVisible = false;
     clicked: boolean = false;
 
@@ -47,7 +48,7 @@ export class SidebarComponent implements OnInit{
                 break;
             case 'foglio':
             case '/foglio':
-                this.isModalVisible = true;
+                this.openModal('Foglio');
                 
         }
         this.darkModeService.darkMode$.subscribe(response=>{
@@ -83,7 +84,6 @@ export class SidebarComponent implements OnInit{
     }
 
     openModal(navlink: string) {
-        console.log ('asasasasasa', navlink)
         this.isModalVisible = false;
 
         if (navlink === 'home') {
@@ -92,6 +92,7 @@ export class SidebarComponent implements OnInit{
             this.isWorkspaceVisible = true;
             this.isReportVisible = true;
             this.isSupportoVisible = true;
+            this.isFoglioVisible = true;
             this.router.navigate(['/home']);
         }
 
@@ -101,6 +102,7 @@ export class SidebarComponent implements OnInit{
             this.isWorkspaceVisible = true;
             this.isReportVisible = true;
             this.isSupportoVisible = true;
+            this.isFoglioVisible = true;
             this.router.navigate(['/archivio']);
         }
 
@@ -110,6 +112,7 @@ export class SidebarComponent implements OnInit{
             this.isWorkspaceVisible = false;
             this.isReportVisible = true;
             this.isSupportoVisible = true;
+            this.isFoglioVisible = true;
             this.router.navigate(['/workspace']);
         }
 
@@ -119,6 +122,7 @@ export class SidebarComponent implements OnInit{
             this.isWorkspaceVisible = true;
             this.isReportVisible = false;
             this.isSupportoVisible = true;
+            this.isFoglioVisible = true;
             this.router.navigate(['/report']);
         }
 
@@ -128,7 +132,17 @@ export class SidebarComponent implements OnInit{
             this.isWorkspaceVisible = true;
             this.isReportVisible = true;
             this.isSupportoVisible = false;
+            this.isFoglioVisible = true;
             this.router.navigate(['/supporto']);
+        }
+        if (navlink === 'Foglio') {
+            this.isHomeVisible = true;
+            this.isArchivioVisible = true;
+            this.isWorkspaceVisible = true;
+            this.isReportVisible = true;
+            this.isSupportoVisible = true;
+            this.isFoglioVisible = false;
+            this.router.navigate(['/foglio']);
         }
     }
 
@@ -138,6 +152,7 @@ export class SidebarComponent implements OnInit{
         this.isWorkspaceVisible = true;
         this.isReportVisible = true;
         this.isSupportoVisible = true;
+        this.isFoglioVisible = true;
     }
 
     archivioVisible() {
@@ -146,14 +161,16 @@ export class SidebarComponent implements OnInit{
         this.isWorkspaceVisible = false;
         this.isReportVisible = true;
         this.isSupportoVisible = true;
+        this.isFoglioVisible = true;
     }
 
     workspaceVisible() {
         this.isHomeVisible = true;
         this.isArchivioVisible = true;
         this.isWorkspaceVisible = true;
-        this.isReportVisible = false;
+        this.isReportVisible = true;
         this.isSupportoVisible = true;
+        this.isFoglioVisible = false;
     }
 
     reportVisible() {
@@ -162,6 +179,16 @@ export class SidebarComponent implements OnInit{
         this.isWorkspaceVisible = true;
         this.isReportVisible = true;
         this.isSupportoVisible = false;
+        this.isFoglioVisible = true;
+    }
+
+    foglioVisible() {
+        this.isHomeVisible = true;
+        this.isArchivioVisible = true;
+        this.isWorkspaceVisible = true;
+        this.isReportVisible = false;
+        this.isSupportoVisible = true;
+        this.isFoglioVisible = true;
     }
 
     supportoVisible() {
@@ -174,6 +201,7 @@ export class SidebarComponent implements OnInit{
         this.isWorkspaceVisible = true;
         this.isReportVisible = true;
         this.isSupportoVisible = true;
+        this.isFoglioVisible = true;
     }
 
     activeArchivio() {
@@ -182,6 +210,7 @@ export class SidebarComponent implements OnInit{
         this.isWorkspaceVisible = true;
         this.isReportVisible = true;
         this.isSupportoVisible = true;
+        this.isFoglioVisible = true;
     }
 
     activeWorkspace() {
@@ -190,6 +219,7 @@ export class SidebarComponent implements OnInit{
         this.isWorkspaceVisible = false;
         this.isReportVisible = true;
         this.isSupportoVisible = true;
+        this.isFoglioVisible = true;
     }
 
     activeReport() {
@@ -198,6 +228,16 @@ export class SidebarComponent implements OnInit{
         this.isWorkspaceVisible = true;
         this.isReportVisible = false;
         this.isSupportoVisible = true;
+        this.isFoglioVisible = true;
+    }
+
+    activeFoglio() {
+        this.isHomeVisible = true;
+        this.isArchivioVisible = true;
+        this.isWorkspaceVisible = true;
+        this.isReportVisible = true;
+        this.isSupportoVisible = true;
+        this.isFoglioVisible = false;
     }
 
     activeSupporto() {
@@ -222,6 +262,9 @@ export class SidebarComponent implements OnInit{
                 break;
             case 'workspace':
                 this.router.navigate(['workspace']);
+                break;
+            case 'foglio':
+                this.router.navigate(['foglio']);
                 break;
             case 'report':
                 this.router.navigate(['report']);
