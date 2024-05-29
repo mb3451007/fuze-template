@@ -1,5 +1,5 @@
 <div
-    class="sidebar z-[40] bg-white border-r border-solid border-gray-1400 fixed left-0 top-0 h-full xl:max-w-[200px] md:max-w-[150px] sm:max-w-[75px] max-w-[100px] w-full flex justify-between flex-col" [ngClass]="{'dark-mode': isDarkMode,'lightMode':!isDarkMode}">
+    class="sidebar z-[40] bg-white border-r border-solid border-gray-1400 fixed left-0 top-0 h-full xl:max-w-[200px] md:max-w-[150px] sm:max-w-[75px] max-w-[100px] w-full flex justify-between flex-col" [ngClass]="{'dark-mode': isDarkMode,'light-mode':!isDarkMode}">
     <div class="border-b border-solid border-gray-1400 md:min-h-[100px] min-h-[60px]">
 
         <a id="toggleBtn" class="arrow-icon cursor-pointer bg-gray-1300 head-arrow rounded-full sm:w-[30px] w-[20px] sm:h-[30px] h-[20px] flex items-center justify-center absolute sm:-right-3.5 -right-2.5 sm:top-4 top-5"
@@ -50,8 +50,9 @@
     </div>
     <div class="xl:px-5 md:px-2.5 px-1 py-8 h-full navigation">
         <ul class="sidebar">
-            <li class="mb-2.5 cursor-pointer" (click)="openModal('home') ; navigateTo('home') "><a
-                    class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4]
+            <li class="mb-2.5 cursor-pointer" (click)="openModal('home') ; navigateTo('home') ">
+                <a [ngClass]="{'active': isActive('/home')}"
+                 routerLinkActive="active"  [routerLinkActiveOptions]="{ exact: true }"   class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4]
                     font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
                         class="w-6 xl:mr-2.5 md:mr-1.5 mr-0 flex items-center justify-center">
                         <svg width="20" height="22" viewBox="0 0 20 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -69,7 +70,7 @@
                     <p class="md:block hidden"> Home </p>
                 </a></li>
 
-            <li class="mb-2.5 cursor-pointer" (click)="openModal('archvio'); navigateTo('archivio')  "><a
+            <li class="mb-2.5 cursor-pointer" (click)="openModal('archvio'); navigateTo('archivio')  "><a [ngClass]="{'active': isActive('/archivio')}"
                     class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4] font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11  rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span class="w-6 xl:mr-2.5 md:mr-1.5 mr-0">
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path class="path-fill"
@@ -77,11 +78,11 @@
                                 fill="#1E1E1E" fill-opacity="0.4"></path>
                         </svg>
                     </span>
-                    <p class="md:block hidden"> Archivio</p>
+                    <p class="md:block hidden" routerLinkActive="active"> Archivio</p>
                 </a></li>
 
             <li class="mb-2.5 cursor-pointer" (click)="openModal('Workspace'); navigateTo('workspace')">
-                <a
+                <a [ngClass]="{'active': isActive('/workspace')}"
                     class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4] font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px] hover:bg-sea-green-1100 hover:text-white">
                     <span class="w-6 xl:mr-2.5 md:mr-1.5 mr-0">
                         <svg width="24" height="16" viewBox="0 0 24 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,10 +91,11 @@
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </span>
-                    <p class="md:block hidden"> Workspace </p>
+                    <p class="md:block hidden" routerLinkActive="active"> Workspace </p>
                 </a>
             </li>
-            <li class="mb-2.5 cursor-pointer" (click)="openModal('Foglio');navigateTo('foglio')"><a
+            <li class="mb-2.5 cursor-pointer" (click)="openModal('Foglio');navigateTo('foglio')">
+                <a [ngClass]="{'active': isActive('/foglio')}"
                     class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4] font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
                         class="w-6 xl:mr-2.5 md:mr-1.5 mr-0">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -102,10 +104,11 @@
                             </svg>
                             
                     </span>
-                    <p class="md:block hidden"> Foglio </p>
+                    <p class="md:block hidden" routerLinkActive="active"> Foglio </p>
                 </a></li>
 
-            <li class="mb-2.5 cursor-pointer" (click)="openModal('Report'); navigateTo('report')"><a
+            <li class="mb-2.5 cursor-pointer" (click)="openModal('Report'); navigateTo('report')">
+                <a [ngClass]="{'active': isActive('/report')}"
                     class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4] font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px]   hover:bg-sea-green-1100 hover:text-white"><span
                         class="w-6 xl:mr-2.5 md:mr-1.5 mr-0">
                         <svg width="26" height="16" viewBox="0 0 26 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,9 +121,10 @@
                                 fill="#1E1E1E" fill-opacity="0.4" />
                         </svg>
                     </span>
-                    <p class="md:block hidden">Report</p>
+                    <p class="md:block hidden" routerLinkActive="active">Report</p>
                 </a></li>
-            <li class="mb-2.5 cursor-pointer" (click)="openModal('Supporto');navigateTo('supporto')"><a
+            <li class="mb-2.5 cursor-pointer" (click)="openModal('Supporto');navigateTo('supporto')">
+                <a [ngClass]="{'active': isActive('/supporto')}"
                     class="navi-link flex items-center md:justify-start justify-center text-black-1200/[0.4] font-Ubuntu font-medium xl:text-base text-sm leading-none xl:px-5 px-3 sm:h-[52px] h-11 rounded-[10px] hover:bg-sea-green-1100 hover:text-white"><span
                         class="w-6 xl:mr-2.5 md:mr-1.5 mr-0">
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -139,7 +143,7 @@
                                 stroke="#1E1E1E" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </span>
-                    <p class="md:block hidden"> Supporto</p>
+                    <p class="md:block hidden" routerLinkActive="active"> Supporto</p>
                 </a></li>
 
         </ul>
@@ -184,7 +188,7 @@
                         fill="#1E1E1E" fill-opacity="0.4"></path>
                 </svg>
             </span>
-            <p class="md:block hidden"> Home </p>
+            <p class="md:block hidden" routerLinkActive="active"> Home </p>
         </a>
     </span>
 
@@ -200,7 +204,7 @@
                         fill="#1E1E1E" fill-opacity="0.4"></path>
                 </svg>
             </span>
-            <p class="md:block hidden"> Archivio</p>
+            <p class="md:block hidden" routerLinkActive="active"> Archivio</p>
         </a>
     </span>
 
@@ -217,7 +221,7 @@
                 </svg>
 
             </span>
-            <p class="md:block hidden"> Workspace</p>
+            <p class="md:block hidden" routerLinkActive="active"> Workspace</p>
         </a>
     </span>
 
@@ -233,7 +237,7 @@
                     </svg>
                     
             </span>
-            <p class="md:block hidden"> Foglio</p>
+            <p class="md:block hidden" routerLinkActive="active"> Foglio</p>
         </a>
     </span>
     <span
@@ -253,7 +257,7 @@
                         fill="#1E1E1E" fill-opacity="0.4"></path>
                 </svg>
             </span>
-            <p class="md:block hidden"> Report</p>
+            <p class="md:block hidden" routerLinkActive="active"> Report</p>
         </a>
     </span>
 
@@ -280,7 +284,7 @@
                         stroke="#1E1E1E" stroke-opacity="0.4" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </span>
-            <p class="md:block hidden"> Supporto</p>
+            <p class="md:block hidden" routerLinkActive="active"> Supporto</p>
         </a>
     </span>
 

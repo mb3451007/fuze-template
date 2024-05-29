@@ -43,7 +43,7 @@
       padding-left: 5%;
     }
 
-    .lightMode{
+    .light-mode{
       background-color: rgb(232 236 240 / 0.5) !important;
     }
     .dark-mode {
@@ -63,8 +63,12 @@
         color: rgba(0, 0, 0, 0.54) !important;
       }
     }
-    .lightMode{
+    .light-mode{
       background-color: rgb(232 236 240 / 0.5) !important;
+      .sidebar{
+            background-color: white !important;
+        }
+       
     }
     
     .dark-mode{
@@ -90,6 +94,12 @@
           .fare-con{
             background-color: #31363F !important;
           }
+          .guarda{
+            background-color: #31363F !important;
+          }
+          .guarda:hover{
+            background-color: rgb(251 175 63 / var(--tw-text-opacity)) !important;
+          }
           .novita{
             background-color: #31363F !important;
           }
@@ -106,11 +116,14 @@
             background-color:#222831 !important;
           }
           .file{
-            background-color:red !important;
+            background-color:#222831;
             color: white !important;
           }
           #default-tab [aria-selected="false"] {
             color: white !important;
+          }
+          .border-gray-1400 {
+            border-color: #737374 !important;
           }
 
         .sm\:px-5{

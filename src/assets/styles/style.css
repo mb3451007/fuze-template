@@ -1063,43 +1063,43 @@ input:checked+.toggle-bg {
 
 @media (min-width: 375px) {
   .container {
-    max-width: 375px;
+    /* max-width: 375px; */
   }
 }
 
 @media (min-width: 576px) {
   .container {
-    max-width: 576px;
+    /* max-width: 576px; */
   }
 }
 
 @media (min-width: 768px) {
   .container {
-    max-width: 768px;
+    /* max-width: 768px; */
   }
 }
 
 @media (min-width: 992px) {
   .container {
-    max-width: 992px;
+    /* max-width: 992px; */
   }
 }
 
 @media (min-width: 1200px) {
   .container {
-    max-width: 1200px;
+    /* max-width: 1200px; */
   }
 }
 
 @media (min-width: 1366px) {
   .container {
-    max-width: 1366px;
+    /* max-width: 1366px; */
   }
 }
 
 @media (min-width: 1600px) {
   .container {
-    max-width: 1600px;
+    /* max-width: 1600px; */
   }
 }
 
@@ -3337,7 +3337,7 @@ input:checked+.toggle-bg {
   width: 34px;
   height: 34px;
   position: absolute;
-  left: 8px;
+  left: 8px; 
   top: 2px;
   border-radius: 12px;
   transition: transform 0.2s linear;

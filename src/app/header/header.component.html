@@ -37,10 +37,10 @@
 
             <li class="md:ml-6 ml-2.5 flex items-center">
                 <div class="switch-mode d-flex">
-                    <input type="checkbox" class="checkbox" id="checkbox" (change)="toggleDarkMode($event)">
+                    <input type="checkbox" class="checkbox" id="checkbox" (change)="toggleDarkMode($event)" [checked]="isDarkModeOn">
                     <label for="checkbox" class="checkbox-label d-flex">
-                        <span class="relative z-50"><img src="assets/images/sun-icon.svg" alt="" /></span>
-                        <span class="relative z-50"> <img src="assets/images/moon-icon.svg" alt="" /> </span>
+                        <span class="relative z-50" ><img src="assets/images/sun-icon.svg" alt="" /></span>
+                        <span class="relative z-50" > <img src="assets/images/moon-icon.svg" alt="" /> </span>
                         <span class="ball"></span>
                     </label>
                 </div>

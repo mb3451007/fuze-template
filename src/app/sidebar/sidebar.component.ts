@@ -1,16 +1,18 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { DarkModeService } from 'app/dark-mode.service';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
     selector: 'app-sidebar',
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule,RouterModule],
     templateUrl: './sidebar.component.html',
     styleUrl: './sidebar.component.scss',
 })
 export class SidebarComponent implements OnInit{
+    currentPath:any;
     isDarkMode:boolean=false;
     isHomeVisible: boolean = false;
     isArchivioVisible: boolean = true;
@@ -21,10 +23,17 @@ export class SidebarComponent implements OnInit{
     isModalVisible = false;
     clicked: boolean = false;
 
-    constructor(private router: Router, private renderer: Renderer2,private darkModeService:DarkModeService) {}
+    constructor(private router: Router, private renderer: Renderer2,private darkModeService:DarkModeService) {
+        this.currentPath=window.location.pathname;
+        this.router.events.subscribe((event)=>{
+            if(event instanceof NavigationEnd){
+                this.currentPath=event.url;
+            }
+        })
+    }
 
     ngOnInit(): void {
-        console.log ('asasasas', window.location.pathname)
+        console.log ('url of active component', window.location.pathname)
         switch (window.location.pathname) {
             case '/home':
             case 'home':
@@ -276,6 +285,9 @@ export class SidebarComponent implements OnInit{
                 console.error(`Unknown route: ${route}`);
         }
     }
-
+    
+      isActive(route: string): boolean {
+        return this.currentPath === route;        
+      }
     
 }
