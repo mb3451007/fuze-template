@@ -6,6 +6,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 })
 export class SharedService {
   private fullscreenSubject = new BehaviorSubject<boolean>(false);
+  toggleSideBar = new BehaviorSubject<boolean>(false);
   fullscreenState$ = this.fullscreenSubject.asObservable();
 
   Fullscreen(isFullscreen: boolean):any {
@@ -15,7 +16,11 @@ export class SharedService {
     if (document.fullscreenElement) {
         document.exitFullscreen().then(() => this.Fullscreen(false));
     }
-}
+  }
+
+  setToggle(v: boolean) {
+    this.toggleSideBar.next(v);
+  }
 
   constructor() { }
 }

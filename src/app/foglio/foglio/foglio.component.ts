@@ -45,12 +45,16 @@ export class FoglioComponent implements AfterViewInit{
   }
 
   onCreated(): void {
+    const icons = document.getElementsByClassName('e-drop-icon') as HTMLCollectionOf<HTMLElement>;
+    icons[0].style.display = "none";
+
     this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="add-new-btn" class="new-add-button btn-hvr"><img src="assets/images/plusicon.png"></button>'}], 0);
     this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="save-without-icon" class="new-save-button btn-hvr" (click)="saveSheetsWithOutIcon()"><img src="assets/images/saveicon2.svg"></button>'}], 4);
     this.spreadsheet.addToolbarItems('Home', [{ type: 'Button' }, { template: '<button id="full-screen" class="full-screen-button btn-hvr" (click)="fullScreen()"><img src="assets/images/full-screen.svg"></button>'}], 8);
     document.getElementById('add-new-btn')?.addEventListener('click', this.addNewSheet.bind(this));
     document.getElementById('save-without-icon')?.addEventListener('click', this.onsave.bind(this));
     document.getElementById('full-screen')?.addEventListener('click',this.fullScreen.bind(this))
+    this.spreadsheet.hideToolbarItems('Home', [0, 4, 8]);
   }
   onsave(): void {
     this.spreadsheet.save({

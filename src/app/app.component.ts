@@ -1,4 +1,4 @@
-import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
 import { SpreadsheetModule } from '@syncfusion/ej2-angular-spreadsheet';
@@ -22,11 +22,12 @@ import { CommonModule } from '@angular/common';
     ],
 })
 export class AppComponent implements OnInit {
-    constructor(private sharedService: SharedService, private darkModeService:DarkModeService) {}
+    constructor(private sharedService: SharedService, private darkModeService:DarkModeService, private changeDetector: ChangeDetectorRef) {}
     isDarkMode:boolean=false;
     isFullscreen = false;
     applicationFullscreen: boolean;
     showSideBar: boolean = true;
+    toggleSideBar: boolean = false;
     ngOnInit(): any {
         if (window.location.pathname.indexOf('auth') >= 0) {
             this.showSideBar = false;
@@ -40,6 +41,12 @@ export class AppComponent implements OnInit {
             document.body.classList.toggle('dark-mode', response);
             console.log(response, 'is dark mode is opened');
             
+        })
+
+        this.sharedService.toggleSideBar.subscribe((v: any) => { 
+            this.toggleSideBar = v;
+            console.log ('yesssss', this.toggleSideBar)
+            this.changeDetector.detectChanges();
         })
 
     };

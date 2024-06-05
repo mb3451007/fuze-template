@@ -3,7 +3,7 @@
         <app-header></app-header>
         <app-sidebar></app-sidebar>
     </div>
-    <div class="main-content">
+    <div class="main-content {{toggleSideBar ? 'main-content-p' : 'main-content-q'}}">
         <router-outlet></router-outlet>
     </div>
 </div>

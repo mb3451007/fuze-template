@@ -3,6 +3,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { DarkModeService } from 'app/dark-mode.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { SharedService } from 'app/services/shared.service';
 
 @Component({
     selector: 'app-sidebar',
@@ -23,7 +24,7 @@ export class SidebarComponent implements OnInit{
     isModalVisible = false;
     clicked: boolean = false;
 
-    constructor(private router: Router, private renderer: Renderer2,private darkModeService:DarkModeService) {
+    constructor(private router: Router, private renderer: Renderer2,private darkModeService:DarkModeService, private sharedService: SharedService) {
         this.currentPath=window.location.pathname;
         this.router.events.subscribe((event)=>{
             if(event instanceof NavigationEnd){
@@ -65,6 +66,8 @@ export class SidebarComponent implements OnInit{
         })
     }
 
+    toggle: boolean = false;
+
     toggleSidebar() {
         console.log ('inside')
         this.clicked = !this.clicked;
@@ -83,9 +86,11 @@ export class SidebarComponent implements OnInit{
                 });
             });
         });
-        if (this.clicked)
+        if (this.clicked) {
+            this.toggle = !this.toggle;
+            this.sharedService.setToggle(this.toggle)
             document.getElementById('toggleBtn').click();
-            // this.renderer.selectRootElement(document.getElementById('toggleBtn')).click();
+        }
     }
     
     closeModal(): void {

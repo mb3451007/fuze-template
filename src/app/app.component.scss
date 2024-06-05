@@ -6,7 +6,7 @@
 }
 
 .container {
-    display: flex;
+    // display: flex;
     width: 100%;
 }
 
@@ -15,14 +15,21 @@
     transition: flex-basis 0.3s ease; 
 }
 
+.main-content-p {
+  padding-left: 8em !important;
+}
+
+.main-content-q {
+  padding-left: 15em !important;
+}
+
 .main-content {
-    padding-top: 30px;
-    padding-left: 50px;
+    padding-left: 15em;
     flex: 1;
     height: 100% !important; 
     width: 100% !important; 
     flex-grow: 1;
-    margin-top: 5%;
+    padding-top: 6em;
 }
 
 .sidebar.collapsed {

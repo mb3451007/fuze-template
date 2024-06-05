@@ -1,4 +1,15 @@
+ejs-spreadsheet {
+    padding-right: 1.3em;
+}
 ::ng-deep {
+
+    .e-tab-header {
+        display :none !important
+    }
+
+    body {
+        overflow-x: hidden !important;
+    }
     .e-spreadsheet .e-column-header{
         left: 50px !important;
 
