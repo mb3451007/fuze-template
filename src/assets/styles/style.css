@@ -2612,6 +2612,8 @@ input:checked+.toggle-bg {
 
 .bg-gray-3000 {
   background-color: #E8ECF080;
+  /* background-color: red !important; */
+
 }
 
 .bg-gray-3000\/\[0\.5\] {
@@ -5590,3 +5592,7 @@ body {
   --tw-bg-opacity: 1;
   background-color: rgb(32 201 187 / var(--tw-bg-opacity));
 }
+.dark
+  .sidebar{
+    background-color: #20C9BB !important;
+  }

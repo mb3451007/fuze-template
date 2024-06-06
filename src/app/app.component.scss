@@ -30,6 +30,7 @@
     width: 100% !important; 
     flex-grow: 1;
     padding-top: 6em;
+    
 }
 
 .sidebar.collapsed {
@@ -53,7 +54,7 @@
     .light-mode{
       background-color: rgb(232 236 240 / 0.5) !important;
     }
-    .dark-mode {
+    .dark {
       background-color: black;
       color: white;
     }
@@ -78,7 +79,11 @@
        
     }
     
-    .dark-mode{
+    .dark{
+      .main-content{
+        // background-color:#222831 !important;
+        background-color: rgb(15,23,42) !important;
+      }
         .dialog-main-div {
           background-color: #31363F !important;
         }

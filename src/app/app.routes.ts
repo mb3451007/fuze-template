@@ -17,7 +17,7 @@ import { ArchivioComponent } from './archivio/archivio.component';
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 export const appRoutes: Route[] = [
             { path: '', component: HomeComponent },
-            { path: 'home', component: HomeComponent },
+            // { path: 'home', component: HomeComponent },
             { path: 'archivio', component: ArchivioComponent },
             { path: 'workspace', component: WorkspaceComponent },
             { path: 'report', component: ReportComponent },
