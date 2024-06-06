@@ -24,12 +24,14 @@
 }
 
 .main-content {
-    padding-left: 15em;
+    // padding-left: 15em;
     flex: 1;
     height: 100% !important; 
     width: 100% !important; 
     flex-grow: 1;
-    padding-top: 6em;
+    // padding-top: 6em;
+    padding-top: 90px !important;
+    padding-left: 230px !important;
     
 }
 
@@ -80,9 +82,15 @@
     }
     
     .dark{
+      .nuovo{
+        background-color: rgb(61,65,74) !important;
+      }
+      .dashboard-right{
+        background-color: rgb(34,40,49)!important
+      }
       .main-content{
-        // background-color:#222831 !important;
-        background-color: rgb(15,23,42) !important;
+        // background-color: rgb(15,23,42) !important;
+        background-color: rgb(34,40,49)!important;
       }
         .dialog-main-div {
           background-color: #31363F !important;

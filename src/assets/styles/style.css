@@ -3778,7 +3778,12 @@ body {
   .dashboard-right.active {
     padding-left: 85px;
   }
+/* .dark
+  .dashboard-right{
+    background-color: rgb(34,40,49)!important;
 
+  
+} */
   .colonna-table table {
     width: 640px;
   }
